@@ -1,41 +1,31 @@
-# Setup
+# Configuration
 
-Using MetaGPT involves connecting with model providers. After your [Installation](./installation.md) is complete, follow the instructions in this document to complete the
-configuration before use.
+## LLM API Configuration Steps
 
-## Setup for LLM API
+After completing the installation, follow these steps to configure the LLM API, using the OpenAI API as an example. This process is similar for other LLM APIs.
 
-### OpenAI API
+1. **Initialize Configuration**:
 
-We will take OpenAI API as an example to illustrate the full process, which applies identically to other LLM APIs.
+   - Execute `metagpt --init-config` to generate `~/.metagpt/config2.yaml`. Edit this file with your configurations to avoid sharing your API key by accident.
 
-You can finish the setup by modifying the `config/config2.yaml`:
+2. **Edit Configuration**:
 
-#### Use a config2.yaml
-
-1. In your current working directory, create a folder `config` and add a new file named `config2.yaml`
-   under it.
-2. Copy the content from the example [config2.yaml](https://github.com/geekan/MetaGPT/blob/main/config/config2.yaml) file
-   into your new files
-3. Fill in your own values to the file:
+   - Update `~/.metagpt/config2.yaml` according to the [example](https://github.com/geekan/MetaGPT/blob/main/config/config2.example.yaml) and [configuration code](https://github.com/geekan/MetaGPT/blob/main/metagpt/config2.py):
 
 ```yaml
 llm:
-  api_key: 'sk-...' # YOUR_API_KEY
+  api_type: 'openai' # or azure / ollama / open_llm etc. Check LLMType for more options
   model: 'gpt-4-turbo-preview' # or gpt-3.5-turbo-1106 / gpt-4-1106-preview
+  base_url: 'https://api.openai.com/v1' # or forward url / other llm url
+  api_key: 'YOUR_API_KEY'
 ```
 
-Remember: If you follow the `git clone` approach in [Installation](./installation), `config/config2.yaml` will already be
-there. Just edit it or make a copy named `~/.metagpt/config2.yaml` for editting. This way you don't accidentally commit and
-share your API key using git.
+> **Note**:
+> Configuration priority is `~/.metagpt/config2.yaml > config/config2.yaml`.
 
-> Note:
-> MetaGPT will read your setup in this priority order: `~/.metagpt/config2.yaml > config/config2.yaml`
+With these steps, your setup is complete. For starting with MetaGPT, check out the [Quickstart guide](./quickstart) or our [Tutorials](/en/guide/tutorials/agent_101).
 
-Here you are good to go! See [Quickstart](./quickstart) or our [Tutorials](/guide/tutorials/agent_101) for your first
-run!
-
-MetaGPT also supports various LLM models, configure the keys of model APIs according to your needs.
+MetaGPT supports a range of LLM models. Configure your model API keys as needed.
 
 ### Zhipu API
 
@@ -101,7 +91,7 @@ llm:
   endpoint: 'YOUR_ENDPOINT_NAME like ernie_speed'
 ```
 
-#### Use application AK/SK to authenticate(Not Recommended)
+#### Use application AK/SK to authenticate (Not Recommended)
 
 use `model`
 
@@ -135,7 +125,7 @@ llm:
   model: 'YOUR_ENDPOINT_NAME like qwen-max'
 ```
 
-## Setup for tools (Optional)
+## Configuration for tools (Optional)
 
 In addition to LLM, we often want agents to use tools. We cover their setup in this section.
 
@@ -189,7 +179,7 @@ mermaid:
 
 ## Others (Optional)
 
-Check [config2.yaml.example](https://github.com/geekan/MetaGPT/blob/dev/config/config2.yaml.example) and
+Check [config2.example.yaml](https://github.com/geekan/MetaGPT/blob/dev/config/config2.example.yaml) and
 [config2.py](https://github.com/geekan/MetaGPT/blob/dev/metagpt/config2.py) for more details.
 
 ```yaml

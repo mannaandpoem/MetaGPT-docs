@@ -8,17 +8,17 @@ pip install metagpt
 
 Available installation methods can be found in the [Installation](./installation) section
 
-## Setup
+## Configuration
 
-Variations for setting up LLM API (OpenAI, Azure, Anthropic, etc.) and other components can be found in the [Setup](./setup) section.
+Variations for setting up LLM API (OpenAI, Azure, Anthropic, etc.) and other components can be found in the [Configuration](./configuration) section.
 
-For formal usage of MetaGPT, using a config2.yaml. See [Setup](./setup).
+For formal usage of MetaGPT, using a config2.yaml. See [Configuration](./configuration).
 
 ## Develop software with a one-line requirement
 
 > Note:
 >
-> Below is a breakdown of the [software startup example](https://github.com/geekan/MetaGPT/blob/main/metagpt/startup.py). If you install MetaGPT with the git clone approach, simply run
+> Below is a breakdown of the [software startup example](https://github.com/geekan/MetaGPT/blob/main/metagpt/software_company.py). If you install MetaGPT with the git clone approach, simply run
 >
 > ```
 > metagpt "write a cli blackjack game"

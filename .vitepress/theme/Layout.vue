@@ -3,6 +3,10 @@ import { useEventListener } from '@vueuse/core';
 import { useData, useRoute, useRouter, withBase } from 'vitepress';
 import DefaultTheme from 'vitepress/theme';
 import { nextTick, provide } from 'vue';
+import Author from '../../src/components/author/author.vue';
+import SidebarTagNew from '@/components/sidebarTagNew.vue';
+
+const Layout = DefaultTheme.Layout;
 
 const { isDark, theme, site } = useData();
 
@@ -84,7 +88,14 @@ onMounted(() => {
 </script>
 
 <template>
-  <DefaultTheme.Layout />
+  <Layout>
+    <template #doc-top>
+      <Author></Author>
+    </template>
+    <template #sidebar-nav-before>
+      <SidebarTagNew></SidebarTagNew>
+    </template>
+  </Layout>
 </template>
 
 <style>

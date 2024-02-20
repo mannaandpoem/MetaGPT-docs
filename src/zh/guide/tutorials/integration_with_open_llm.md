@@ -249,11 +249,13 @@ curl -X POST http://localhost:11434/api/chat -d '{
 **config/config2.yaml**
 
 ```yaml
-OPEN_LLM_API_BASE: 'http://106.75.10.65:8001/v1'
-OPEN_LLM_API_MODEL: 'llama2-13b'
+llm:
+  api_type: open_llm
+  base_url: 'http://106.75.10.xxx:8000/v1'
+  model: 'llama2-13b'
 ```
 
-openapi chat接口的完整路由`http://0.0.0.0:8000/v1/chat/completions`，`OPEN_LLM_API_BASE` 只需要配置到`http://0.0.0.0:8000/v1` ，剩余部分openai sdk会补齐。`OPEN_LLM_API_MODEL`为请求接口参数`model`的实际值。
+openapi chat接口的完整路由`http://0.0.0.0:8000/v1/chat/completions`，`base_url` 只需要配置到`http://0.0.0.0:8000/v1` ，剩余部分openai sdk会补齐。`model`为请求接口参数`model`的实际值。
 
 #### ollama api接口
 
@@ -262,11 +264,13 @@ openapi chat接口的完整路由`http://0.0.0.0:8000/v1/chat/completions`，`OP
 **config/config2.yaml**
 
 ```yaml
-OLLAMA_API_BASE: 'http://127.0.0.1:11434/api'
-OLLAMA_API_MODEL: 'llama2'
+llm:
+  api_type: ollama
+  base_url: 'http://127.0.0.1:11434/api'
+  model: 'llama2'
 ```
 
-ollama chat接口的完整路由`http://127.0.0.1:11434/api/chat` ，`OLLAMA_API_BASE` 只需要配置到`http://127.0.0.1:11434/api` ，剩余部分由`OllamaGPTAPI` 补齐。`OLLAMA_API_MODEL` 为请求接口参数`model` 的实际值。
+ollama chat接口的完整路由`http://127.0.0.1:11434/api/chat` ，`base_url` 只需要配置到`http://127.0.0.1:11434/api` ，剩余部分由`OllamaLLM` 补齐。`model` 为请求接口参数`model` 的实际值。
 
 ## 可选的，修复LLM输出结果
 
@@ -286,7 +290,9 @@ MetaGPT的prompt对输出有较强的结构要求，开源模型输出时，往�
 **config/config2.yaml**
 
 ```yaml
-repair_llm_output: true
+llm:
+  ...
+  repair_llm_output: true
 ```
 
 开启该功能后，执行过程中将尝试去修复上述情况。该开关目前并不能保证完整修复，仍会有些情况我们暂未覆盖（不同的开源模型的情况有所不同），执行过程会中断退出。如果你对此感兴趣，欢迎提PR，并附上对应的模型说明、测试日志和单测用例。

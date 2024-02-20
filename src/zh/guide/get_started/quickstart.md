@@ -10,13 +10,13 @@ pip install metagpt
 
 ## 配置
 
-完整配置不同LLM API（比如OpenAI、Azure、Anthropic等）的方法可在 [配置](./setup) 部分找到。
+完整配置不同LLM API（比如OpenAI、Azure、Anthropic等）的方法可在 [配置](./configuration) 部分找到。
 
 ## 一句话需求的软件开发
 
 > 注意：
 >
-> 下面为 [software startup example](https://github.com/geekan/MetaGPT/blob/main/metagpt/startup.py) 的节选。如果你使用`git clone`方法进行安装，只需简单执行
+> 下面为 [software startup example](https://github.com/geekan/MetaGPT/blob/main/metagpt/software_company.py) 的节选。如果你使用`git clone`方法进行安装，只需简单执行
 >
 > ```
 > metagpt "write a cli blackjack game"

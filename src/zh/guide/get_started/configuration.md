@@ -23,6 +23,8 @@
 llm:
   api_key: 'sk-...' # YOUR_API_KEY
   model: 'gpt-4-turbo-preview' # or gpt-3.5-turbo-1106 / gpt-4-1106-preview
+  # base_url: 'https://api.openai.com/v1'  # or any forward url.
+  # proxy: 'YOUR_PROXY'  # Optional. If you want to use a proxy, set it here.
 ```
 
 请记住：如果您按照[安装](./installation)中的`git clone`方法，`config/config2.yaml`
@@ -181,7 +183,7 @@ mermaid:
 
 ## 其他配置（可选）
 
-Check [config2.yaml.example](https://github.com/geekan/MetaGPT/blob/dev/config/config2.yaml.example) and
+Check [config2.example.yaml](https://github.com/geekan/MetaGPT/blob/dev/config/config2.example.yaml) and
 [config2.py](https://github.com/geekan/MetaGPT/blob/dev/metagpt/config2.py) for more details.
 
 ```yaml
